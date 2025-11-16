@@ -70,35 +70,29 @@ Ask students to create a new project with a unique name they choose.
 
 #### Initializing the game variables (except playFire, and enemyFire):
 
--   Create a player sprite (variable) at (x=2, y=4)
--   Set brightness to 150
+-   Create a new ``||variables:variable||`` and name it ``||player||``
+-   Create a ``||game:sprite||`` at (x=2, y=4) and assign it to ``||variables:player||``
+-   Set ``||variables:player||``.``||game:brightness||`` to 150
+
 ```blocks
 let player = game.createSprite(2, 4);
 player.set(LedSpriteProperty.Brightness, 150)
 ```
-
--   Create an enemy sprite (variable) at a random x on the top row (y=0)
--   Set brightness to 150
+-   Create another ``||variables:variable||`` and name it ``||enemy||``
+-   Create a ``||game:sprite||`` at (x=random, y=0) and assign it to ``||variables:enemy||``
+-   Limit random values of x to the range from 0 - 4
+-   Set ``||variables:enemy||``.``||game:brightness||`` to 150
 
 ```blocks
+let player = game.createSprite(2, 4);
+player.set(LedSpriteProperty.Brightness, 150)
 let enemy = game.createSprite(randint(0, 4), 0)
 enemy.set(LedSpriteProperty.Brightness, 150)
 ```
 
--   Create a variable called health
--   initialize its value to 3
--   Store that variable inside the built-in life variable
-
-```blocks
-let health = 3
-game.setLife(health)
-```
--   Finally set the score built-in variable to 0
-
-```blocks
-game.setScore(0)
-```
-- When you're done with this part, your onStart loop should look like this:
+-   Create a new ``||variables:variable||`` and name it ``||health||``
+-   Set its value to 3
+-   Store that variable inside the built-in ``||game:life||`` variable
 
 ```blocks
 let player = game.createSprite(2, 4);
@@ -107,8 +101,20 @@ let enemy = game.createSprite(randint(0, 4), 0)
 enemy.set(LedSpriteProperty.Brightness, 150)
 let health = 3
 game.setLife(health)
+```
+-   Finally set the  ``||game:score||``  built-in variable to 0
+
+```blocks
+let player = game.createSprite(2, 4);
+player.set(LedSpriteProperty.Brightness, 150)
+let enemy = game.createSprite(randint(0, 4), 0)
+enemy.set(LedSpriteProperty.Brightness, 150)
+let health = 3
+game.setLife(health)
 game.setScore(0)
 ```
+- Great! We created the main the game objects/variables and set their initial values.
+- In the next part, we will learn how to move our player and make it shoot.
 
 Part 3: Player movement + shooting behavior
 -------------------------------------------
